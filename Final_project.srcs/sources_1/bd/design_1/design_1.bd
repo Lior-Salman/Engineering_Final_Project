@@ -1,0 +1,338 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xE99B95648F779E84",
+      "device": "xc7vx485tffg1157-1",
+      "gen_directory": "../../../../Final_project.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "None",
+      "tool_version": "2024.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "dds_compiler_0": "",
+      "axis_sm_0": ""
+    },
+    "ports": {
+      "rstn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "clk_i": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "rstn",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "design_1_clk_i",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "m_axis_data_tdata": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "m_axis_data_tvalid": {
+        "direction": "O"
+      },
+      "m_axis_phase_tdata": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "m_axis_phase_tvalid": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "dds_compiler_0": {
+        "vlnv": "xilinx.com:ip:dds_compiler:6.0",
+        "ip_revision": "26",
+        "xci_name": "design_1_dds_compiler_0_0",
+        "xci_path": "ip\\design_1_dds_compiler_0_0\\design_1_dds_compiler_0_0.xci",
+        "inst_hier_path": "dds_compiler_0",
+        "parameters": {
+          "Channels": {
+            "value": "1"
+          },
+          "DATA_Has_TLAST": {
+            "value": "Not_Required"
+          },
+          "Frequency_Resolution": {
+            "value": "0.4"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Has_Phase_Out": {
+            "value": "true"
+          },
+          "Has_TREADY": {
+            "value": "true"
+          },
+          "Latency": {
+            "value": "9"
+          },
+          "M_DATA_Has_TUSER": {
+            "value": "Not_Required"
+          },
+          "M_PHASE_Has_TUSER": {
+            "value": "Not_Required"
+          },
+          "Mode_of_Operation": {
+            "value": "Standard"
+          },
+          "Noise_Shaping": {
+            "value": "Auto"
+          },
+          "OUTPUT_FORM": {
+            "value": "Twos_Complement"
+          },
+          "Output_Frequency1": {
+            "value": "0"
+          },
+          "Output_Selection": {
+            "value": "Sine"
+          },
+          "Output_Width": {
+            "value": "8"
+          },
+          "PINC1": {
+            "value": "0"
+          },
+          "Parameter_Entry": {
+            "value": "System_Parameters"
+          },
+          "PartsPresent": {
+            "value": "Phase_Generator_and_SIN_COS_LUT"
+          },
+          "Phase_Increment": {
+            "value": "Streaming"
+          },
+          "Phase_Width": {
+            "value": "28"
+          },
+          "Phase_offset": {
+            "value": "None"
+          },
+          "S_PHASE_Has_TUSER": {
+            "value": "Not_Required"
+          }
+        }
+      },
+      "axis_sm_0": {
+        "vlnv": "xilinx.com:module_ref:axis_sm:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_axis_sm_0_0",
+        "xci_path": "ip\\design_1_axis_sm_0_0\\design_1_axis_sm_0_0.xci",
+        "inst_hier_path": "axis_sm_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "axis_sm",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "s_axis_phase": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+            "parameters": {
+              "TDATA_NUM_BYTES": {
+                "value": "8",
+                "value_src": "constant"
+              },
+              "TDEST_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "TID_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "TUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TREADY": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_TSTRB": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TKEEP": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_TLAST": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_i",
+                "value_src": "default_prop"
+              }
+            },
+            "port_maps": {
+              "TDATA": {
+                "physical_name": "s_axis_phase_tdata",
+                "direction": "O",
+                "left": "63",
+                "right": "0"
+              },
+              "TVALID": {
+                "physical_name": "s_axis_phase_tvalid",
+                "direction": "O"
+              },
+              "TREADY": {
+                "physical_name": "s_axis_phase_tready",
+                "direction": "I"
+              }
+            }
+          }
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_BUSIF": {
+                "value": "s_axis_phase",
+                "value_src": "constant"
+              },
+              "ASSOCIATED_RESET": {
+                "value": "rstn",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_i",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rstn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "m_axis_phase_tready": {
+            "direction": "O"
+          },
+          "m_axis_data_tready": {
+            "direction": "O"
+          },
+          "state_reg": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "axis_sm_0_s_axis_phase": {
+        "interface_ports": [
+          "axis_sm_0/s_axis_phase",
+          "dds_compiler_0/S_AXIS_PHASE"
+        ]
+      }
+    },
+    "nets": {
+      "axis_sm_0_m_axis_data_tready": {
+        "ports": [
+          "axis_sm_0/m_axis_data_tready",
+          "dds_compiler_0/m_axis_data_tready"
+        ]
+      },
+      "axis_sm_0_m_axis_phase_tready": {
+        "ports": [
+          "axis_sm_0/m_axis_phase_tready",
+          "dds_compiler_0/m_axis_phase_tready"
+        ]
+      },
+      "clk_i_1": {
+        "ports": [
+          "clk_i",
+          "dds_compiler_0/aclk",
+          "axis_sm_0/clk"
+        ]
+      },
+      "dds_compiler_0_m_axis_data_tdata": {
+        "ports": [
+          "dds_compiler_0/m_axis_data_tdata",
+          "m_axis_data_tdata"
+        ]
+      },
+      "dds_compiler_0_m_axis_data_tvalid": {
+        "ports": [
+          "dds_compiler_0/m_axis_data_tvalid",
+          "m_axis_data_tvalid"
+        ]
+      },
+      "dds_compiler_0_m_axis_phase_tdata": {
+        "ports": [
+          "dds_compiler_0/m_axis_phase_tdata",
+          "m_axis_phase_tdata"
+        ]
+      },
+      "dds_compiler_0_m_axis_phase_tvalid": {
+        "ports": [
+          "dds_compiler_0/m_axis_phase_tvalid",
+          "m_axis_phase_tvalid"
+        ]
+      },
+      "rstn_1": {
+        "ports": [
+          "rstn",
+          "dds_compiler_0/aresetn",
+          "axis_sm_0/rstn"
+        ]
+      }
+    }
+  }
+}
