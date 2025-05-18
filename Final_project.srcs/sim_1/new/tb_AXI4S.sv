@@ -12,14 +12,25 @@ module tb_AXI4S(
 bit clk_i = 0, rstn = 0;
 
 
-logic  [15:0]   m_axis_data_tdata;
+logic  [31:0]   m_axis_data_tdata;
 // logic           m_axis_data_tready;
 logic           m_axis_data_tvalid;
+
+logic  [15:0]   m_axis_SIN;
+logic  [15:0]   m_axis_COS;
 
 
 logic  [31:0]   m_axis_phase_tdata;
 // logic           m_axis_phase_tready;
 logic           m_axis_phase_tvalid;
+
+
+
+
+logic    start_en;                 // Start enable signal
+logic    [31:0] phase_start_value; // Starting value for phase
+logic    [31:0] phase_stop_value;  // Stopping value for phase
+logic    [31:0] phase_step_value; 
 
 // Generate the clock : 100 MHz    
 always #5ns clk_i = ~clk_i;
@@ -32,7 +43,12 @@ design_1_wrapper UUT
     .clk_i                	(clk_i),
     .rstn               (rstn),
 
-    .m_axis_data_tdata     	(m_axis_data_tdata),
+    .start_en           (start_en),
+    .phase_start_value  (phase_start_value),
+    .phase_stop_value   (phase_stop_value),
+    .phase_step_value   (phase_step_value),
+
+    .m_axis_data_tdata     	({m_axis_SIN,m_axis_COS}),
     // .m_axis_data_tready     (m_axis_data_tready),
     .m_axis_data_tvalid    	(m_axis_data_tvalid),
 
@@ -51,8 +67,16 @@ design_1_wrapper UUT
 //
 initial begin
     #50ns
-    // Release the reset
-    rstn = 1;
+
+        start_en            = 1;
+        phase_start_value   = 32'h28F;
+        phase_stop_value    = 32'h51E;
+        phase_step_value    = 32'h1A;
+
+    #500ns
+        // Release the reset
+        rstn                = 1;
+        start_en            = 1;
 
 
 

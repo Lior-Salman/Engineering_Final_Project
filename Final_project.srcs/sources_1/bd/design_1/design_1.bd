@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xE99B95648F779E84",
+      "boundary_crc": "0xD04493017D5D0C0C",
       "device": "xc7vx485tffg1157-1",
       "gen_directory": "../../../../Final_project.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -60,7 +60,7 @@
       },
       "m_axis_data_tdata": {
         "direction": "O",
-        "left": "7",
+        "left": "31",
         "right": "0"
       },
       "m_axis_data_tvalid": {
@@ -73,6 +73,24 @@
       },
       "m_axis_phase_tvalid": {
         "direction": "O"
+      },
+      "phase_start_value": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "phase_stop_value": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "phase_step_value": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "start_en": {
+        "direction": "I"
       }
     },
     "components": {
@@ -83,6 +101,9 @@
         "xci_path": "ip\\design_1_dds_compiler_0_0\\design_1_dds_compiler_0_0.xci",
         "inst_hier_path": "dds_compiler_0",
         "parameters": {
+          "Amplitude_Mode": {
+            "value": "Unit_Circle"
+          },
           "Channels": {
             "value": "1"
           },
@@ -96,13 +117,16 @@
             "value": "true"
           },
           "Has_Phase_Out": {
-            "value": "true"
+            "value": "false"
           },
           "Has_TREADY": {
             "value": "true"
           },
           "Latency": {
-            "value": "9"
+            "value": "13"
+          },
+          "Latency_Configuration": {
+            "value": "Auto"
           },
           "M_DATA_Has_TUSER": {
             "value": "Not_Required"
@@ -114,7 +138,7 @@
             "value": "Standard"
           },
           "Noise_Shaping": {
-            "value": "Auto"
+            "value": "None"
           },
           "OUTPUT_FORM": {
             "value": "Twos_Complement"
@@ -123,16 +147,16 @@
             "value": "0"
           },
           "Output_Selection": {
-            "value": "Sine"
+            "value": "Sine_and_Cosine"
           },
           "Output_Width": {
-            "value": "8"
+            "value": "16"
           },
           "PINC1": {
             "value": "0"
           },
           "Parameter_Entry": {
-            "value": "System_Parameters"
+            "value": "Hardware_Parameters"
           },
           "PartsPresent": {
             "value": "Phase_Generator_and_SIN_COS_LUT"
@@ -141,7 +165,7 @@
             "value": "Streaming"
           },
           "Phase_Width": {
-            "value": "28"
+            "value": "32"
           },
           "Phase_offset": {
             "value": "None"
@@ -260,6 +284,24 @@
               }
             }
           },
+          "start_en": {
+            "direction": "I"
+          },
+          "phase_start_value": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "phase_stop_value": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "phase_step_value": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
           "m_axis_phase_tready": {
             "direction": "O"
           },
@@ -289,12 +331,6 @@
           "dds_compiler_0/m_axis_data_tready"
         ]
       },
-      "axis_sm_0_m_axis_phase_tready": {
-        "ports": [
-          "axis_sm_0/m_axis_phase_tready",
-          "dds_compiler_0/m_axis_phase_tready"
-        ]
-      },
       "clk_i_1": {
         "ports": [
           "clk_i",
@@ -314,16 +350,22 @@
           "m_axis_data_tvalid"
         ]
       },
-      "dds_compiler_0_m_axis_phase_tdata": {
+      "phase_start_value_1": {
         "ports": [
-          "dds_compiler_0/m_axis_phase_tdata",
-          "m_axis_phase_tdata"
+          "phase_start_value",
+          "axis_sm_0/phase_start_value"
         ]
       },
-      "dds_compiler_0_m_axis_phase_tvalid": {
+      "phase_step_value_1": {
         "ports": [
-          "dds_compiler_0/m_axis_phase_tvalid",
-          "m_axis_phase_tvalid"
+          "phase_step_value",
+          "axis_sm_0/phase_step_value"
+        ]
+      },
+      "phase_stop_value_1": {
+        "ports": [
+          "phase_stop_value",
+          "axis_sm_0/phase_stop_value"
         ]
       },
       "rstn_1": {
@@ -331,6 +373,12 @@
           "rstn",
           "dds_compiler_0/aresetn",
           "axis_sm_0/rstn"
+        ]
+      },
+      "start_en_1": {
+        "ports": [
+          "start_en",
+          "axis_sm_0/start_en"
         ]
       }
     }
